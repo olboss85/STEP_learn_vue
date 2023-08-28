@@ -1,10 +1,10 @@
-<script setup>
-const car = defineProps({
-    car: {
-        type: Object,
-        required: true,
-    },
-})
+<script setup> 
+    const props = defineProps({ 
+        car: { 
+            type: Object, 
+            required: true, 
+        }, 
+    }) 
 </script>
 
 <template>
