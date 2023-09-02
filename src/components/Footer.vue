@@ -8,9 +8,7 @@
     <h3>GitHub: olboss85</h3>
     <h3>E-mail: olboss85@gmail.com</h3>
     <h3>Mobile: +77714141416</h3>
-
   </div>
-  
 </template>
 
 <style scoped>
