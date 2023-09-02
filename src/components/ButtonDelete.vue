@@ -12,11 +12,11 @@
 </script>
 
 <template>
-    <div class="buttons">
+    <!-- <div class="buttons">
         {{ counter }}
         <button class="increase" @click="increase">Like</button>
         <button class="decrease" @click="decrease">Dislike</button>
-    </div>
+    </div> -->
 </template>
 
 <style scoped>

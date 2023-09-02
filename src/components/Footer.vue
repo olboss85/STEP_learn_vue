@@ -3,18 +3,32 @@
 </script>
 
 <template>
-  <h1 class="footer-title">My Vue Project</h1>
+  <div class="footer">
+    <h3>@ 2023</h3>
+    <h3>GitHub: olboss85</h3>
+    <h3>E-mail: olboss85@gmail.com</h3>
+    <h3>Mobile: +77714141416</h3>
+
+  </div>
+  
 </template>
 
 <style scoped>
-  .footer-title {
+  .footer {
     color: grey;
-    font-size: 24px;
     width: 1170px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #e6f1ee;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  .footer h3 {
+    margin: 5px;
   }
 </style>
