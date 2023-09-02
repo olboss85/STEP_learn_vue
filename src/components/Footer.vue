@@ -19,11 +19,7 @@
     display: flex;
     justify-content: space-between;
     background-color: #e6f1ee;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
+
   }
 
   .footer h3 {
