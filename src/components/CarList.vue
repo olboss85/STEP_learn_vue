@@ -1,7 +1,7 @@
 <script setup>
-import CarItem from '@components/CarItem.vue'
+import CarItem from '@/components/CarItem.vue';
 
-const carsArray = [
+    const carsArray = [
   {
     brand: "BMW",
     price: "2000000",
@@ -9,10 +9,8 @@ const carsArray = [
     volume: 2.4,
     color: "#FF0000",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s"
-  }
+  },
 ]
-
-console.log(carsArray)
 </script>
 
 <template>
@@ -21,5 +19,4 @@ console.log(carsArray)
     </section>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
