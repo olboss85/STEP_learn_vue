@@ -47,9 +47,12 @@ export default {
     flex-direction: column;
 }
 .side_btn{
-  background-color: rgb(238, 238, 228); 
   color: black; 
   width: 170px;
   margin-bottom: 10px;
+  padding: 10px 15px;
+  background: none;
+  color: rgb(83, 111, 111);
+  border: 1px solid rgb(83, 111, 111);
 }
 </style>
