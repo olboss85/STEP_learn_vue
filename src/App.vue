@@ -4,6 +4,7 @@ import CarList from '@/components/CarList.vue';
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Background from '@/components/Background.vue' 
+import Table from '@/components/Table.vue' 
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import Background from '@/components/Background.vue'
     <Header></Header>
     <ButtonDelete />
     <CarList />
+    <Table />
     <Footer></Footer>
   </Background>
 </template>
