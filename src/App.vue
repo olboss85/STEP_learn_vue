@@ -5,12 +5,14 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Background from '@/components/Background.vue' 
 import Table from '@/components/Table.vue' 
+import Sidebar from '@/components/SideBar.vue';
+
 </script>
 
 <template>
   <Background> 
     <Header></Header>
-    <ButtonDelete />
+    <Sidebar />
     <CarList />
     <Table />
     <Footer></Footer>
