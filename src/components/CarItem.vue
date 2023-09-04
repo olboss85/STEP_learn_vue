@@ -51,5 +51,8 @@ function changeColor(color) {
 </template>
  
 <style scoped> 
-
+.car-image {
+  height: 150px;
+  width: 250px;
+}
 </style>
