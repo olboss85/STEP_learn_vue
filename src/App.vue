@@ -6,6 +6,7 @@ import Footer from '@/components/Footer.vue'
 import Background from '@/components/Background.vue' 
 import CarTable from '@/components/CarTable.vue' 
 import Sidebar from '@/components/SideBar.vue';
+import NavBar from './components/layouts/NavBar.vue';
 
 const cars = [
   {
@@ -14,6 +15,7 @@ const cars = [
     year: 1994,
     volume: 2.4,
     color: "#FF0000",
+    criticalNumber: 1,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s", 
   },
   {
@@ -22,6 +24,7 @@ const cars = [
     year: 1994,
     volume: 2.4,
     color: "#FF0000",
+    criticalNumber: 2,
     image: "https://autoreview.ru/images/gallery/%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D0%B8/2019/December/16/audi-q3-sportback2.jpeg",
   },
   {
@@ -30,6 +33,7 @@ const cars = [
     year: 1994,
     volume: 2.4,
     color: "#00FF00",
+    criticalNumber: 3,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s",
   },
   {
@@ -38,6 +42,7 @@ const cars = [
     year: 1994,
     volume: 2.4,
     color: "#FF0000",
+    criticalNumber: 4,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s"
   },
   {
@@ -46,6 +51,7 @@ const cars = [
     year: 1994,
     volume: 2.4,
     color: "#FF0000",
+    criticalNumber: 5,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s"
   },
   {
@@ -54,6 +60,7 @@ const cars = [
     year: 1994,
     volume: 2.4,
     color: "#FF0000",
+    criticalNumber: 5,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s"
   },
 ]
@@ -61,7 +68,9 @@ const cars = [
 </script>
 
 <template>
+  
   <Background> 
+    <NavBar />
     <Header></Header>
     <Sidebar />
     <CarList :cars="cars" />

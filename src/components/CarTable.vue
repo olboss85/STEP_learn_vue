@@ -3,37 +3,37 @@
     <Column v-for="column in carColumns" :key="column.field" :field="column.field" :header="column.header">
       <template #body="{ data }">
         <template v-if="column.field === 'criticScore'">
-          <Dropdown @change="changeDropdown(data)" v-model="data.criticalNumber" :options="numberMarks" optionLabel="header" class="dropdown" />
+          <Dropdown :modelValue="data.criticalNumber" :options="numberMarks" optionLabel="mark" optionValue="mark" class="dropdown" @change="setCriticScore(data.criticalNumber, $event)" />
         </template>
-        <template v-else> {{ data[column.field] }}</template>
+        <template v-else>{{ data[column.field] }} </template>
       </template>
     </Column>
   </DataTable>
 </template>
 
-
 <script setup>
-import { computed, defineProps, ref } from 'vue'
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import Dropdown from 'primevue/dropdown';
+import { defineProps, ref, computed, watch } from 'vue'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
+import Dropdown from 'primevue/dropdown'
 
 const props = defineProps({
   cars: {
     type: Array,
     required: true,
-  }
+  },
 })
 
 const cars = props.cars
 
-const criticalArray = computed(() => {
-  return cars.map((car) => car.criticalNumber)
-})
-
-function changeDropdown(){
-  console.log(criticalNumber.value)
+function setCriticScore(criticalNumber, event) {
+  criticalNumber = event.value
+  console.log(criticalNumber)
 }
+
+watch(cars, () => {
+  console.log(cars)
+})
 
 const carColumns = [
   {
