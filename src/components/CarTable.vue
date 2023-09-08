@@ -31,9 +31,9 @@ function setCriticScore(criticalNumber, event) {
   console.log(criticalNumber)
 }
 
-watch(cars, () => {
-  console.log(cars)
-})
+// watch(cars, () => {
+//   console.log(cars)
+// })
 
 const carColumns = [
   {

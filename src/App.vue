@@ -68,10 +68,10 @@ const cars = [
 </script>
 
 <template>
-  
   <Background> 
-    <NavBar />
+ 
     <Header></Header>
+    <NavBar />
     <Sidebar />
     <CarList :cars="cars" />
     <CarTable :cars="cars" />
@@ -79,4 +79,5 @@ const cars = [
   </Background>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

@@ -45,6 +45,8 @@ export default {
 .side {
     display: flex;
     flex-direction: column;
+    width: 1170px;
+    margin: 0 auto;
 }
 .side_btn{
   color: black; 
