@@ -8,6 +8,7 @@ import CarTable from '@/components/CarTable.vue'
 import Sidebar from '@/components/SideBar.vue';
 import NavBar from './components/layouts/NavBar.vue';
 
+
 const cars = [
   {
     brand: "BMW",

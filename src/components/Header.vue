@@ -1,5 +1,6 @@
 
 <script setup>
+
 </script>
 
 <template>
@@ -14,6 +15,7 @@
         <li class="nav__item"><a href="#">Mobile</a></li>
       </ul>
     </div>
+    
   </div>
 </template>
 
