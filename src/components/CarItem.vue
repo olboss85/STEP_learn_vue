@@ -52,7 +52,7 @@ function changeColor(color) {
  
 <style scoped> 
 .car-image {
-  height: 150px;
-  width: 250px;
+  height: 168px;
+  width: 278px;
 }
 </style>

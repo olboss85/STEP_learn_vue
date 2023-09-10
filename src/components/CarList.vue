@@ -26,6 +26,7 @@ defineProps ({
   justify-content: space-around;
   flex-wrap: wrap;
   padding-inline: 50px;
+  text-align: center;
 }
 
 .cars {
