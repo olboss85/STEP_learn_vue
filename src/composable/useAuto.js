@@ -7,20 +7,18 @@ export const useAuto = () => {
   const auto = ref({
     id: '',
     brand: '',
-    model: '',
-    year: '',
     price: '',
+    saled: false,
+    city: '',
+    carcase: '',
+    volume: '',
     color: '',
-    saled: 'false',
-    discount: '',
-    condition: '',
-    stock: '',
-    wheel: '',
-    typeEngine: '',
-    mileage: '',
-    carBody: '',
-    
+    gear: '',
+    year: '',
+    travel: '',
+    images: [],
   })
+
   const autoList = ref([])
   const newAuto = ref({})
 
@@ -60,5 +58,6 @@ export const useAuto = () => {
     getAutoList,
     auto,
     autoList,
+    loading
   }
 }
