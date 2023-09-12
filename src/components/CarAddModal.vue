@@ -1,5 +1,7 @@
 <template>
-    <Button icon="pi pi-plus" @click="toggleVisible" />
+  <Button icon="pi pi-plus" @click="toggleVisible" class="custom-button">
+    Добавить машину
+  </Button>
 
 <Dialog v-model:visible="visible" modal header="Выставить автомобиль" :style="`width: '50vw'`">
     <template #default>
@@ -131,8 +133,18 @@ const carCase = [
 ]
 
 
+
 </script>
 
 <style scoped>
-
+.custom-button{
+  color: black; 
+  width: 170px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: none;
+  color: rgb(83, 111, 111);
+  border: 1px solid rgb(83, 111, 111);
+  }
 </style>

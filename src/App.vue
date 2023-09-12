@@ -1,11 +1,9 @@
 <script setup>
 import ButtonDelete from '@/components/ButtonDelete.vue'
 import CarList from '@/components/CarList.vue';
-import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import Background from '@/components/Background.vue' 
 import CarTable from '@/components/CarTable.vue' 
-import Sidebar from '@/components/SideBar.vue';
 import NavBar from './components/layouts/NavBar.vue';
 import CarAddModal from './components/CarAddModal.vue';
 
@@ -67,15 +65,37 @@ import CarAddModal from './components/CarAddModal.vue';
 //   },
 // ]
 
+
+//****VUE ROOTER */
+// import {computed, ref } from 'vue'
+// const url = computed({
+//   get(){
+//     return window.location.href;
+//   },
+//   set(value){
+//     window.history.pushState({}, '', value);
+//   }
+// })
+
+// еще вариант использования router
+// import { useRouter } from 'vue-router'
+// const router = useRouter();
+// function handleClick(){
+//   router.push({ name: 'Home', params: { id: 4 } })
+// }
+
 </script>
 
 <template>
+  <!-- VUE ROOTER  -->
+<!-- <RouterLink to="'/">Главная страница</RouterLink>
+  или можно записать как 
+  @click='$router.push({ name: 'Home', params: { id: 4 } })'
+  <RouterView /> -->
+  <!-- //***//// -->
   <Background> 
- 
-    <Header></Header>
     <NavBar />
     <CarAddModal />
-    <Sidebar />
     <CarList />
     <CarTable />
     <Footer></Footer>

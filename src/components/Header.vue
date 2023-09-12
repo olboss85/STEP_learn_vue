@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div class="header">
+  <!-- <div class="header">
     <div><h3>Vue.js Project</h3></div>
     <div class="nav">
       <ul class="nav__wrapper">
@@ -16,10 +16,10 @@
       </ul>
     </div>
     
-  </div>
+  </div> -->
 </template>
 
-<style scoped>
+<!-- <style scoped>
   .header {
     color: grey;
     width: 1170px;
@@ -50,5 +50,5 @@
   }
   .header h3 {
     margin: 5px;
-  }
+  } -->
 </style>
