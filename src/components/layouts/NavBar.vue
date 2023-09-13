@@ -52,18 +52,12 @@
 import Button from 'primevue/button'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { ref, onMounted } from 'vue'
-import { useAuto } from '@/composable/useAuto'
 import TabMenu from 'primevue/tabmenu';
 import Sidebar from "primevue/sidebar";
 import InputMask from "primevue/inputmask";
 import InputText from "primevue/inputtext";
 import Toast from "primevue/toast";
 
-const { auto, createAuto } = useAuto()
-
-onMounted(async () => {
-  await createAuto()
-})
 
 const googleRegister = () => {
   const auth = getAuth()
