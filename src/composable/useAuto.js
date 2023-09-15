@@ -21,7 +21,6 @@ export const useAuto = () => {
     saled: false,
   })
 
-
   const autoList = ref([])
   const auto = ref(null)
 
@@ -43,11 +42,6 @@ const autoListRemake = computed(() => {
   })
   return _autoListRemake || []
 })
-
-
-
-
-
 
   async function createAuto() {
     loading.value.newAuto = true
@@ -74,6 +68,8 @@ const autoListRemake = computed(() => {
     }
   }
 
+  
+
   function clear() {
     newAuto.value = {
       id: '',
@@ -92,7 +88,6 @@ const autoListRemake = computed(() => {
     autoList.value = []
     auto.value = null
   }
-
 
   return {
     createAuto,
