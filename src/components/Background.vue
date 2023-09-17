@@ -6,6 +6,6 @@
 
 <style scoped>
 .background-container {
-  background: #e4f1f4;
+  background: #fafafa;
 }
 </style>

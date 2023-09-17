@@ -1,0 +1,7 @@
+body {
+    width: 1170px;
+    margin: 0 auto;
+    background-image: url('../assets/back1.png');
+    background-size: 550px 550px; 
+    background-repeat: repeat;
+  }

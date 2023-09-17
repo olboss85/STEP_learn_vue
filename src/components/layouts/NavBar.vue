@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div>
+      <Image src="https://avatars.mds.yandex.net/i?id=a30e1ec6bdf37c28ba2dac675e20b2412136e69a-9066494-images-thumbs&n=13" alt="Image" width="150" height="115" margin-top="10" />
+    </div>
   <div class="card">
     <TabMenu v-model:activeIndex="active" :model="items">
         <template #item="{ label, item, props }">
@@ -15,10 +18,14 @@
 </div>
 
 <div class="side">
-  <button type="button" class="p-link p-ml-auto btn" @click="googleRegister">
-    Авторизация
+  <button v-if="!user" type="button" class="p-link p-ml-auto btn" @click="googleRegister">
+    Войти <i class="pi pi-user"></i>
+  </button>
+  <button v-else type="button" class="p-link p-ml-auto btn" @click="logout">
+    Выйти <i class="pi pi-user"></i>
   </button>
 </div>
+
 <div class="card flex justify-content-center">
   <Sidebar v-model:visible="visible">
     <h2>Ваш отзыв</h2>
@@ -38,7 +45,7 @@
 </span>
 <Button type="submit" label="Отправить" @click="handleSubmit" />
 </Sidebar>
-<Button class="btn" @click="visible = true">Оставить отзыв</Button>
+<Button class="btn" @click="visible = true">Оставить отзыв  <i class="pi pi-star"></i></Button>
 </div>
   <Toast />
 
@@ -52,28 +59,42 @@
 import Button from 'primevue/button'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { ref, onMounted } from 'vue'
-import TabMenu from 'primevue/tabmenu';
-import Sidebar from "primevue/sidebar";
-import InputMask from "primevue/inputmask";
-import InputText from "primevue/inputtext";
-import Toast from "primevue/toast";
+import TabMenu from 'primevue/tabmenu'
+import Sidebar from 'primevue/sidebar'
+import InputMask from 'primevue/inputmask'
+import InputText from 'primevue/inputtext'
+import Toast from 'primevue/toast'
+import Image from 'primevue/image';
 
+
+const auth = getAuth()
+const user = ref(JSON.parse(localStorage.getItem('user')))
 
 const googleRegister = () => {
-  const auth = getAuth()
   const provider = new GoogleAuthProvider()
 
   signInWithPopup(auth, provider)
     .then((userCredential) => {
       const user = userCredential.user
       localStorage.setItem('user', JSON.stringify(user))
+      location.reload()
     })
     .catch((error) => {
       const errorCode = error.code
       const errorMessage = error.message
-      console.log(errorCode, errorMessage)
     })
 }
+
+const availabilityTrue = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  return user === null
+}
+
+const logout = () => {
+  localStorage.removeItem('user')
+  location.reload()
+}
+
 
 
 import { useRouter, useRoute } from "vue-router";

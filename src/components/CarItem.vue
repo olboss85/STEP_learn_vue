@@ -2,7 +2,8 @@
 import { defineProps } from 'vue'; 
 import Card from 'primevue/card'; 
 import Chip from 'primevue/chip'; 
- 
+import ColorPicker from 'primevue/colorpicker';
+
 defineProps({ 
   auto: { 
     type: Object, 
@@ -30,7 +31,10 @@ function changeColor(color) {
         <p>Цена: {{ auto.price }}</p>
         <p>Год выпуска: {{ auto.year }}</p>
         <p>Объем двигателя: {{ auto.volume }}</p>
-        <p :style="`color: ${auto.color}`">Цвет: {{ auto.color }}</p>
+        <div class="color-container">
+          <p style="margin:0px; margin-right:10px">Цвет:</p>
+          <ColorPicker v-model="auto.color" disabled />
+        </div>
       </template>
       <template #footer>
         <Chip v-if="Number(auto.price.slice(0, -1)) > 1000000" label="Дорогой" icon="pi pi-apple" />
@@ -45,5 +49,18 @@ function changeColor(color) {
 .car-image {
   height: 168px;
   width: 278px;
+}
+
+.color-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.color-box {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
+  border: 1px solid black;
 }
 </style>
