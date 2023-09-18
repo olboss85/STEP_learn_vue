@@ -12,16 +12,7 @@ import { initializeApp } from "firebase/app";
 
 
 
-//****VUE ROOTER */
-// import { createRouter, createWebHistory } from 'vue-router' 
-// const router = createRouter({
-//   history: createWebHistory(),
-//   routes: [{
-//     name: 'Home',
-//     path: '/',
-//     component: () => import ('@/views/HomeView.vue'),
-//   }]
-// })
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCtNXkwABbAgk4TVupsmcxqkGaFereqG3Y",

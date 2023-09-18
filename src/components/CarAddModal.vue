@@ -50,11 +50,10 @@
             <InputText id="travel" v-model.number="newAuto.travel" />
             <Slider v-model="newAuto.travel" min="0" max="500000" />
           </div>
-          <div class="p-field">
-            <label for="photo">Картинка</label>
-            <FileUpload id="photo" v-model="newAuto.image" mode="basic" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+            <div class="p-field">
+              <label for="travel">Картинка</label>
+            <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @input="onUpload($event)" />
           </div>
-
         </div>
       </template>
     <template #footer>
@@ -76,10 +75,10 @@ import Calendar from 'primevue/calendar';
 import ColorPicker from 'primevue/colorpicker';
 import RadioButton from 'primevue/radiobutton';
 import Slider from 'primevue/slider';
-import { useAuto } from '@/composable/useAuto';
 import FileUpload from 'primevue/fileupload';
+import { useAuto } from '@/composable/useAuto';
 
-const { newAuto, createAuto, loading, clear } = useAuto()
+const { newAuto, createAuto, loading, clear, uploadImage } = useAuto()
 
 const visible = ref(false);
 
@@ -97,6 +96,10 @@ function clearAuto(){
   toggleVisible()
 }
 
+async function onUpload(e) {
+  const image = e.target.files[0]
+  await uploadImage(image)
+}
 
 const brandLabel = [
   { brand: 'BMW' },
