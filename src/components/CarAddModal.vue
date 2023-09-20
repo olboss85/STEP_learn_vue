@@ -35,16 +35,16 @@
             <Dropdown id="carcase" v-model="newAuto.carcase" editable :options="carCase" option-label="carcase" option-value="carcase" placeholder="Кузов" />
           </div>
          <div class="p-field">
-  <label for="gear">Коробка</label>
-  <div class="flex flex-wrap gap-3">
-    <RadioButton id="mechanic" v-model="newAuto.gear" name="gear" value="Механика" />
-    <label for="mechanic" class="ml-2">Механика</label>
-  </div>
-  <div class="flex align-items-center">
-    <RadioButton id="auto" v-model="newAuto.gear" name="gear" value="Автомат" />
-    <label for="auto" class="ml-2">Автомат</label>
-  </div>
-</div>
+            <label for="gear">Коробка</label>
+            <div class="flex flex-wrap gap-3">
+              <RadioButton id="mechanic" v-model="newAuto.gear" name="gear" value="Механика" />
+              <label for="mechanic" class="ml-2">Механика</label>
+            </div>
+            <div class="flex align-items-center">
+              <RadioButton id="auto" v-model="newAuto.gear" name="gear" value="Автомат" />
+              <label for="auto" class="ml-2">Автомат</label>
+            </div>
+          </div>
           <div class="p-field">
             <label for="travel">Пробег</label>
             <InputText id="travel" v-model.number="newAuto.travel" />

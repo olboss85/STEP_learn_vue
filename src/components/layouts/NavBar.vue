@@ -14,7 +14,6 @@
             </router-link>
         </template>
     </TabMenu>
-    <router-view />
 </div>
 
 <div class="side">
@@ -110,14 +109,14 @@ const items = ref([
         route: '/'
     },
     {
-        label: 'Calendar',
+        label: 'Машины',
         icon: 'pi pi-fw pi-calendar',
-        route: '/calendar'
+        route: '/cards'
     },
     {
-        label: 'Edit',
+        label: 'Данные',
         icon: 'pi pi-fw pi-pencil',
-        route: '/edit'
+        route: '/table'
     },
     {
         label: 'Documentation',

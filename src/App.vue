@@ -1,17 +1,16 @@
 <script setup>
 import Footer from '@/components/Footer.vue'
-import Background from '@/components/Background.vue'  
+import CarAddModal from '@/components/CarAddModal.vue'  
 import NavBar from './components/layouts/NavBar.vue';
 import { RouterView } from 'vue-router';
 
 </script>
 
 <template>
-  <Background> 
     <NavBar />
+    <CarAddModal />
     <router-view />
     <Footer></Footer>
-  </Background>
 </template>
 
 <style scoped>

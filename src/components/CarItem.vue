@@ -63,4 +63,6 @@ function changeColor(color) {
   margin-right: 5px;
   border: 1px solid black;
 }
+
+
 </style>
