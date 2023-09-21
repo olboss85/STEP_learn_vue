@@ -38,8 +38,8 @@ function changeColor(color) {
       </template>
       <template #footer>
         <Chip v-if="Number(auto.price.slice(0, -1)) > 1000000" label="Дорогой" icon="pi pi-apple" />
-        <Chip v-else-if="Number(auto.year) <= 1960" label="Старый" icon="pi pi-history" />
-        <Chip v-else label="Скучный" icon="pi-briefcase" />
+        <Chip v-if="Number(auto.year) <= 1960" label="Старый" icon="pi pi-history" />
+        <Chip v-else label="Скучный" icon="pi pi-briefcase" />  
         <Chip v-if="changeColor(auto.color)" label="Беспонтовый цвет" icon="pi pi-eye-slash"/>
       </template>
     </Card>

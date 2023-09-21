@@ -43,5 +43,11 @@ function goToCarUrl(id) {
 
 :deep(.p-card) {
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+:deep(.p-card:hover) {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
 }
 </style>

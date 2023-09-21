@@ -47,11 +47,7 @@
 <Button class="btn" @click="visible = true">Оставить отзыв  <i class="pi pi-star"></i></Button>
 </div>
   <Toast />
-
 </div>
-
-  
-  
   </template>
   
   <script setup>
@@ -65,6 +61,8 @@ import InputText from 'primevue/inputtext'
 import Toast from 'primevue/toast'
 import Image from 'primevue/image';
 
+
+const router = useRouter();
 
 const auth = getAuth()
 const user = ref(JSON.parse(localStorage.getItem('user')))
@@ -98,7 +96,7 @@ const logout = () => {
 
 import { useRouter, useRoute } from "vue-router";
 
-const router = useRouter();
+
 const route = useRoute();
 
 const active = ref(0);
@@ -119,9 +117,9 @@ const items = ref([
         route: '/table'
     },
     {
-        label: 'Documentation',
+        label: 'Отзывы',
         icon: 'pi pi-fw pi-file',
-        route: '/documentation'
+        route: '/reviews'
     },
     {
         label: 'Settings',
