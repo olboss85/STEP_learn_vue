@@ -10,6 +10,7 @@ import { RouterView } from 'vue-router';
     <NavBar />
     <CarAddModal />
     <router-view />
+
     <Footer></Footer>
 </template>
 

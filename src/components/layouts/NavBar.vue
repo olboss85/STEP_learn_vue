@@ -60,7 +60,7 @@ import InputMask from 'primevue/inputmask'
 import InputText from 'primevue/inputtext'
 import Toast from 'primevue/toast'
 import Image from 'primevue/image';
-
+import { useToast } from 'primevue/usetoast';
 
 const router = useRouter();
 
@@ -92,8 +92,6 @@ const logout = () => {
   location.reload()
 }
 
-
-
 import { useRouter, useRoute } from "vue-router";
 
 
@@ -102,7 +100,7 @@ const route = useRoute();
 const active = ref(0);
 const items = ref([
     {
-        label: 'Home',
+        label: 'Главная',
         icon: 'pi pi-fw pi-home',
         route: '/'
     },
@@ -121,42 +119,42 @@ const items = ref([
         icon: 'pi pi-fw pi-file',
         route: '/reviews'
     },
-    {
-        label: 'Settings',
-        icon: 'pi pi-fw pi-cog',
-        route: '/settings'
-    }
+
 ]);
 
 onMounted(() => {
     active.value = items.value.findIndex((item) => route.path === router.resolve(item.route).path);
 })
 
-
-import { useToast } from 'primevue/usetoast';
-
+const reviews = ref([]);
 const visible = ref(false);
 const value = ref('');
 const value2 = ref('');
 const comment = ref('');
 
 const toast = useToast();
-
 const showSuccess = () => {
     toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
 };
-
 const showError = () => {
     toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
 };
 
 const handleSubmit = () => {
     if (value.value && value2.value && comment.value) {
+        const newReview = {
+            name: value.value,
+            phone: value2.value,
+            text: comment.value,
+        };
+        reviews.value.push(newReview);
+        console.log (newReview)
         showSuccess();
     } else {
         showError();
     }
 };
+
 </script>
 
 <style scoped>
