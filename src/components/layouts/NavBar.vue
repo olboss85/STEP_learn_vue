@@ -38,10 +38,10 @@
       <label for="phone"></label>
       <InputMask v-model="value2" date="phone" mask="+7(999) 999-9999" placeholder="+7(705) 111-1234" />
   </div>
-  <span class="p-float-label">
+  <!-- <span class="p-float-label">
     <InputText id="comment" v-model="comment" />
     <label for="comment">Ваш отзыв или вопрос</label>
-</span>
+</span> -->
 <Button type="submit" label="Отправить" @click="handleSubmit" />
 </Sidebar>
 <Button class="btn" @click="visible = true">Оставить отзыв  <i class="pi pi-star"></i></Button>
@@ -140,20 +140,20 @@ const showError = () => {
     toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
 };
 
-const handleSubmit = () => {
-    if (value.value && value2.value && comment.value) {
-        const newReview = {
-            name: value.value,
-            phone: value2.value,
-            text: comment.value,
-        };
-        reviews.value.push(newReview);
-        console.log (newReview)
-        showSuccess();
-    } else {
-        showError();
-    }
-};
+// const handleSubmit = () => {
+//     if (value.value && value2.value && comment.value) {
+//         const newReview = {
+//             name: value.value,
+//             phone: value2.value,
+//             text: comment.value,
+//         };
+//         reviews.value.push(newReview);
+//         console.log (newReview)
+//         showSuccess();
+//     } else {
+//         showError();
+//     }
+// };
 
 </script>
 
