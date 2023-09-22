@@ -108,12 +108,6 @@ const autoListRemake = computed(() => {
       })
   }
 
-// Votes
-
-
-
-
-
   function clear() {
     newAuto.value = {
       id: '',

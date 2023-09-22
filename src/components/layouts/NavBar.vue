@@ -102,7 +102,7 @@ const items = ref([
     {
         label: 'Главная',
         icon: 'pi pi-fw pi-home',
-        route: '/'
+        route: '/home'
     },
     {
         label: 'Машины',
