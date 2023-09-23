@@ -38,14 +38,75 @@
       <label for="phone"></label>
       <InputMask v-model="value2" date="phone" mask="+7(999) 999-9999" placeholder="+7(705) 111-1234" />
   </div>
-  <!-- <span class="p-float-label">
+  <span class="p-float-label">
     <InputText id="comment" v-model="comment" />
     <label for="comment">Ваш отзыв или вопрос</label>
-</span> -->
+</span>
 <Button type="submit" label="Отправить" @click="handleSubmit" />
 </Sidebar>
-<Button class="btn" @click="visible = true">Оставить отзыв  <i class="pi pi-star"></i></Button>
+<Button  @click="visible2 = true" class="btn">
+  Добавить авто  <i class="pi pi-check-square"></i>
+</Button>
+<Dialog v-model:visible="visible2" modal header="Выставить автомобиль" :style="`width: '50vw'`">
+  <template #default>
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="brand">Бренд</label>
+          <Dropdown id="brand" v-model="newAuto.brand" editable :options="brandLabel" option-label="brand" option-value="brand" placeholder="Бренд" />
+        </div>
+        <div class="p-field">
+          <label for="price">Цена</label>
+          <InputNumber id="price" v-model="newAuto.price" inputId="currency-us" mode="currency" currency="KZT" locale="ru-ru" />
+        </div>
+        <div class="p-field">
+          <label for="year">Год</label>
+          <Calendar id="year" v-model="newAuto.year" view="year" dateFormat="yy" />
+        </div>
+        <div class="p-field">
+          <label for="volume">Объем</label>
+          <InputNumber id="volume" v-model="newAuto.volume" :minFractionDigits="1" :maxFractionDigits="1" />
+        </div>
+        <div class="p-field">
+          <label for="color">Цвет</label>
+          <ColorPicker id="color" v-model="newAuto.color" />
+        </div>
+        <div class="p-field">
+          <label for="city">Город</label>
+          <Dropdown id="city" v-model="newAuto.city" editable :options="carCity" option-label="city" option-value="city" placeholder="Город" />
+        </div>
+        <div class="p-field">
+          <label for="carcase">Кузов</label>
+          <Dropdown id="carcase" v-model="newAuto.carcase" editable :options="carCase" option-label="carcase" option-value="carcase" placeholder="Кузов" />
+        </div>
+       <div class="p-field">
+          <label for="gear">Коробка</label>
+          <div class="flex flex-wrap gap-3">
+            <RadioButton id="mechanic" v-model="newAuto.gear" name="gear" value="Механика" />
+            <label for="mechanic" class="ml-2">Механика</label>
+          </div>
+          <div class="flex align-items-center">
+            <RadioButton id="auto" v-model="newAuto.gear" name="gear" value="Автомат" />
+            <label for="auto" class="ml-2">Автомат</label>
+          </div>
+        </div>
+        <div class="p-field">
+          <label for="travel">Пробег</label>
+          <InputText id="travel" v-model.number="newAuto.travel" />
+          <Slider v-model="newAuto.travel" min="0" max="500000" />
+        </div>
+          <div class="p-field">
+            <label for="travel">Картинка</label>
+          <FileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" :maxFileSize="1000000" @input="onUpload($event)" />
+        </div>
+      </div>
+    </template>
+  <template #footer>
+      <Button label="Сбросить" icon="pi pi-times" @click="clearAuto" text />
+      <Button label="Добавить" icon="pi pi-check" @click="addAuto" autofocus />
+  </template>
+</Dialog>
 </div>
+<Button class="btn" @click="visible = true">Оставить отзыв  <i class="pi pi-star"></i></Button>
   <Toast />
 </div>
   </template>
@@ -61,6 +122,83 @@ import InputText from 'primevue/inputtext'
 import Toast from 'primevue/toast'
 import Image from 'primevue/image';
 import { useToast } from 'primevue/usetoast';
+import Dialog from 'primevue/dialog';
+import Dropdown from 'primevue/dropdown';
+import InputNumber from 'primevue/inputnumber';
+import Calendar from 'primevue/calendar';
+import ColorPicker from 'primevue/colorpicker';
+import RadioButton from 'primevue/radiobutton';
+import Slider from 'primevue/slider';
+import FileUpload from 'primevue/fileupload';
+import { useAuto } from '@/composable/useAuto';
+
+const { newAuto, createAuto, loading, clear, uploadImage } = useAuto()
+
+const visible2 = ref(false);
+
+const toggleVisible2 = () => {
+    visible2.value = !visible2.value
+}
+
+async function addAuto(){
+  await createAuto()
+  toggleVisible2()
+}
+
+function clearAuto(){
+  clear()
+  toggleVisible2()
+}
+
+async function onUpload(e) {
+  const image = e.target.files[0]
+  await uploadImage(image)
+}
+
+const brandLabel = [
+  { brand: 'BMW' },
+  { brand: 'Audi' },
+  { brand: 'Mercedes' },
+  { brand: 'Volkswagen' },
+  { brand: 'Volvo' },
+  { brand: 'Toyota' },
+  { brand: 'Nissan' },
+  { brand: 'Mazda' },
+  { brand: 'Honda' },
+  { brand: 'Hyundai' },
+  { brand: 'Kia' },
+  { brand: 'Lexus' },
+  { brand: 'Ford' },
+  { brand: 'Chevrolet' },
+  { brand: 'Skoda' },
+  { brand: 'Renault' },
+  { brand: 'Peugeot' },
+]
+
+const carCity = [
+    {city: 'Алматы'},
+    {city: 'Астана'},
+    {city: 'Актобе'},
+    {city: 'Актау'},
+    {city: 'Усть-Каменогорск'},
+]
+
+const carCase = [
+    {carcase: 'седан'},
+    {carcase: 'кабриолет'},
+    {carcase: 'джип'},
+    {carcase: 'универсал'},
+    {carcase: 'внедорожник'},
+    {carcase: 'пикап'},
+    {carcase: 'хэтчбек'},
+
+]
+
+
+
+
+
+
 
 const router = useRouter();
 

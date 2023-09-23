@@ -12,14 +12,22 @@
 </template>
 
 <style scoped>
+.app {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 50px; 
+}
+
   .footer {
+    position: absolute;
+    bottom: 0;
     color: grey;
     width: 1170px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     background-color: #e6f1ee;
-
+    padding: 10px;
   }
 
   .footer h3 {

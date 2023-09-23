@@ -28,11 +28,11 @@ const router = createRouter({
       name: 'car',
       component: () => import('../views/CarIdPage.vue'),
     },
-    // {
-    //   path: '/reviews',
-    //   name: 'ReviewPage',
-    //   component: () => import('../views/ReviewPage.vue'),
-    // },
+    {
+      path: '/reviews',
+      name: 'ReviewPage',
+      component: () => import('../views/ReviewPage.vue'),
+    },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
