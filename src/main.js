@@ -6,11 +6,8 @@ import 'primeicons/primeicons.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
-import { initializeApp } from "firebase/app";
-
-
+import { initializeApp } from 'firebase/app';
 
 
 

@@ -30,18 +30,21 @@
     <h2>Ваш отзыв</h2>
     <p>Оставьте Ваш отзыв здесь, или напишите вопрос к нам, и мы свяжемся с Вами в ближайшее время!</p>
 
-    <span class="p-float-label">
-      <InputText id="username" v-model="value" />
+    <div class="in flex flex-column gap-2">
       <label for="username">Ваше имя</label>
-    </span>
-  <div class="flex-auto">
-      <label for="phone"></label>
+      <InputText id="username" v-model="value" aria-describedby="username-help" @input="validateInput" />
+      <small id="username-help">Введите Ваше имя</small>
+    </div>
+  <div class="in flex-auto">
+      <label for="phone">Номер телефона</label>
       <InputMask v-model="value2" date="phone" mask="+7(999) 999-9999" placeholder="+7(705) 111-1234" />
+      <small id="username-help">Введите телефон</small>
   </div>
-  <span class="p-float-label">
+  <div class="in flex flex-column gap-2">
+    <label for="text">Отзыв или вопрос</label>
     <InputText id="comment" v-model="comment" />
-    <label for="comment">Ваш отзыв или вопрос</label>
-</span>
+    <small id="text-help">Напишите Ваш отзыв или вопрос</small>
+</div>
 <Button type="submit" label="Отправить" @click="handleSubmit" />
 </Sidebar>
 <Button  @click="visible2 = true" class="btn">
@@ -267,6 +270,11 @@ onMounted(() => {
 const reviews = ref([]);
 const visible = ref(false);
 const value = ref('');
+const validateInput = (event) => {
+  const inputText = event.target.value;
+  const filteredText = inputText.replace(/[^A-Za-zА-Яа-я\s]/g, '');
+  value.value = filteredText;
+};
 const value2 = ref('');
 const comment = ref('');
 
@@ -278,20 +286,32 @@ const showError = () => {
     toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
 };
 
-// const handleSubmit = () => {
-//     if (value.value && value2.value && comment.value) {
-//         const newReview = {
-//             name: value.value,
-//             phone: value2.value,
-//             text: comment.value,
-//         };
-//         reviews.value.push(newReview);
-//         console.log (newReview)
-//         showSuccess();
-//     } else {
-//         showError();
-//     }
-// };
+import { collection, getDocs, addDoc } from 'firebase/firestore'
+import { db } from '@/firebases'
+
+const handleSubmit = async () => {
+    if (value.value && value2.value && comment.value) {
+        try {
+            const newReview = {
+                name: value.value,
+                phone: value2.value,
+                text: comment.value,
+            };
+            const docRef = await addDoc(collection(db, 'reviews'), newReview);
+            console.log('Review added with ID:', docRef.id);
+            showSuccess();
+            value.value = '';
+            value2.value = '';
+            comment.value = '';
+            visible.value = false;
+        } catch (error) {
+            console.error('Error adding review:', error);
+            showError();
+        }
+    } else {
+        showError();
+    }
+};
 
 </script>
 
@@ -329,6 +349,11 @@ border: 1px solid rgb(83, 111, 111);
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+}
+
+.in{
+  margin-bottom: 15px;
+  width: 240px;
 }
 
 </style>
